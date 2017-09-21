@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<!--设置开发模式-->
+    <constant name="struts.devMode" value="true"/>
+    <!--设置编码形式为GB2312-->
+    <constant name="struts.i18n.encoding" value="UTF8"/>
+    
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<action name="admin_*" class="struts.action.AdminAction" method="{1}">
+			<result name="success">/MyJsp.jsp</result>
+			<result name="failer">/index.jsp</result>
+			<result name="getAdminList" >/admin/admin/admin_list.jsp</result>
+			<!-- 保存后重新回到list页面 -->
+			<result name="addAdminList">/admin/admin/admin_list.jsp</result> 
+		</action>
+		<action name="store_*" class="struts.action.StoreAction" method="{1}">
+			<result name="getStoreList" >/admin/user/merchants.jsp</result>
+			<result name="getStoreById" >/admin/user/editmerchants.jsp</result>
+		</action>
+		<action name="user_*" class="struts.action.UserAction" method="{1}">
+			<result name="getUserList" >/admin/user/user.jsp</result>
+			<result name="getUserById" >/admin/user/edituser.jsp</result>
+		</action>
+			<action name="product_*" class="struts.action.ProductAction" method="{1}">
+			<result name="getProductList" >/admin/product/product.jsp</result>
+			<result name="getProductById" >/admin/product/editproduct.jsp</result>
+		    <result name="getProductListxj" >/admin/product/xj.jsp</result>
+		</action>
+		<action name="order_*" class="struts.action.OrderAction" method="{1}">
+			<result name="getOrderList" >/admin/order/allOrder.jsp</result>
+			<result name="getOrderById" >/admin/order/editallorder.jsp</result>
+		</action>
+			<action name="productType_*" class="struts.action.ProductTypeAction" method="{1}">
+			<result name="getProductTypeList" >/admin/product/productType.jsp</result>
+			<result name="getProductTypeById" >/admin/product/editproductType.jsp</result>
+		</action>
+    </package>
+    
+</struts>    

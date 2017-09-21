@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Store" table="ji_store">
+        <id name="store_id" type="java.lang.Integer">
+            <column name="store_id" />
+            <generator class="increment" />
+        </id>
+        <property name="user_id" type="java.lang.String">
+            <column name="user_id" length="20" not-null="true" />
+        </property>
+        <property name="store_name" type="java.lang.String">
+            <column name="store_name" length="20" not-null="true" />
+        </property>
+        <property name="store_dress" type="java.lang.String">
+            <column name="store_dress" length="20" not-null="true" />
+        </property>
+      	<property name="store_logo" type="java.lang.String">
+            <column name="store_logo" length="20" not-null="true" />
+        </property>
+          <property name="store_intro" type="java.lang.String">
+            <column name="store_intro" length="20" not-null="true" />
+        </property>
+        <property name="create_time" type="java.lang.String">
+            <column name="create_time" length="100" not-null="true" />
+        </property>
+        <property name="business_scope" type="java.lang.String">
+            <column name="business_scope" length="20" not-null="true" />
+        </property>
+      	<property name="ensure" type="java.lang.String">
+            <column name="ensure" length="20" not-null="true" />
+        </property>
+        <property name="certification" type="java.lang.String">
+            <column name="certification" length="20" not-null="true" />
+        </property>
+        	<property name="type" type="java.lang.String">
+            <column name="type" length="20" not-null="true" />
+        </property>
+         <set name="order" cascade="all" lazy="false">
+			<key column="id"></key>
+			<one-to-many class="entity.Order"/>
+		</set>
+    </class>
+</hibernate-mapping>

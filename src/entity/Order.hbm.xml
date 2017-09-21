@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="entity.Order" table="ji_order">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <property name="order_number" type="java.lang.String">
+            <column name="order_number" length="20" not-null="true" />
+        </property>
+        <property name="product_id" type="java.lang.String">
+            <column name="product_id" length="20" not-null="true" />
+        </property>
+      	<property name="product_name" type="java.lang.String">
+            <column name="product_name" length="20" not-null="true" />
+        </property>
+        <property name="product_note" type="java.lang.String">
+            <column name="product_note" length="32" not-null="true" />
+        </property>
+         <property name="buyer_note" type="java.lang.String">
+            <column name="buyer_note" length="20" not-null="true" />
+        </property>
+        <property name="old_price" type="java.lang.String">
+            <column name="old_price" length="20" not-null="true" />
+        </property>
+        <property name="new_price" type="java.lang.String">
+            <column name="new_price" length="20" not-null="true" />
+        </property>
+      	<property name="freight" type="java.lang.String">
+            <column name="freight" length="1" not-null="true" />
+        </property>
+        <property name="total_price" type="java.lang.String">
+            <column name="total_price" length="32" not-null="true" />
+        </property>
+         <property name="cart_time" type="java.lang.String">
+            <column name="cart_time" length="20" not-null="true" />
+        </property>
+        <property name="pay_time" type="java.lang.String">
+            <column name="pay_time" length="20" not-null="true" />
+        </property>
+      	<property name="order_status" type="java.lang.String">
+            <column name="order_status" length="1" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="status" length="12" not-null="true" />
+        </property>
+          <many-to-one name="store"  column="store_id" lazy="false"></many-to-one>
+</class>
+</hibernate-mapping>
+
